@@ -1,8 +1,8 @@
 function newItem() {
-  //1 Adding a new item to the list of items:
+  //1. Adding a new item to the list of items:
   let li = $("<li></li>");
   let inputValue = $("#input").val();
-  //let text = $(inputValue);
+
   li.append(inputValue);
 
   if (inputValue === "") {
@@ -10,4 +10,10 @@ function newItem() {
   } else {
     $("#list").append(li);
   }
+  //2. Crossing an item out from the list of items
+  function crossOut() {
+    li.toggleClass("strike");
+  }
+
+  li.on("dblclick", crossOut());
 }
